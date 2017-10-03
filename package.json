@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "express-request-proxy": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {

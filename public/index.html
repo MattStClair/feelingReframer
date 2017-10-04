@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <meta name = "viewport" content ="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vendor/normalize.css">  <!--doesnt ruin styles-->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Raleway" rel="stylesheet"><!--fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--hamburger-->
+   <link rel="stylesheet" href="styles/base.css">
+   <link rel="stylesheet" href="styles/layout.css">
+   <link rel="stylesheet" href="styles/module.css">
+   <script id="home-template" type="text/x-handlebars-template">
+        <p>{{body}}.</p>
+  </script>
+  <script id="about-template" type="text/x-handlebars-template">
+       <p>{{body}}.</p>
+  </script>
+</head>
+<body>
+  <nav class="main-nav"><!--NAV----------------------------------------------->
+    <ul>
+      <li><button id="home"><h2>Home</h2></button> </li>
+      <li> <button id="about"><h2>About</h2></button> </li>
+      <li> <a href="https://medium.com/@stclairm" target="_blank"><button id ="social"><h2>Social</h2></button> </a></li>
+    </nav>
+    <nav class = "hamburger">
+      <i class="fa fa-bars"></i>
+    </nav>
+    <!--header----------------------------------------------->
+  <header class="header">
+    <section class="heading-group-h1">
+      <ul class = "mywork">
+        <li><a href="https://github.com/MattStClair"  target="_blank"><img src="images/git.png" alt="git"></a>  </li>
+        <li><a href="https://www.linkedin.com/in/matthew-stclair-m-s-607755122/"  target="_blank"><img src="images/linkd.png" alt="linkdIn"></a>  </li>
+      </ul>
+        <h1 id="name1">MATT </h1>
+        <h1 id="name2"> ST.CLAIR</h1>
+  </header><!--end of header----------------------------------------------->
+</section>
+  <main> <!--start of body-->
+        <section class="techskills-body"><!--accessed in handlebars----------------------------------------------->
+          <!--Your new content will be displayed in here, sourced from app.js currently-->
+          <div class="content-placeholder"></div>
+      <article class="project-carousel">
+        <header>
+          <table>
+          <td><h1>Samples</h1><td>
+          </table>
+        </header>
+
+        <div id=carousel>
+        <ul>
+          <li><img src=images/ducktimer.png></li>
+          <li><img src=images/mft.png> </li>
+          <li><img src=images/raysImage.png> </li>
+        </ul>
+      </div>
+      <h3>My GitHub Projects</h3>
+      <div id="results"></div><!--put my githu stuff here-->
+
+      </article>
+
+    </section>
+    <section class="about-body"><!--accessed in handlebars----------------------------------------------->
+
+     <img id="myPic" src =images/MeOnABoat.png>
+
+    </section>
+
+  </main>
+  <footer>
+    &copy; 2017 Matt St.Clair | PortFolio | Thanks
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+  <script src="view/app.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+</html>

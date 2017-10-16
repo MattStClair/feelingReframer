@@ -2,10 +2,11 @@
   "name": "feelingreframer",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "public/app.js",
   "dependencies": {
     "express": "^4.16.1",
-    "express-request-proxy": "^2.0.0"
+    "express-request-proxy": "^2.0.0",
+    "powerthesaurus-api": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {

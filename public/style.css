@@ -1,0 +1,97 @@
+body{
+
+  background-color:#92a8d1;
+  color: #034f84;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+h1 {
+  font-family: 'Work Sans', sans-serif;
+}
+
+
+h3 {
+font-family: 'Quicksand', sans-serif;
+}
+
+ul {
+  border: 4px solid #92a8d1;
+  border-radius: 5%;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-family: 'Quicksand', sans-serif;
+
+  line-height: 2em;
+
+}
+
+ul li{
+  list-style: none;
+  background-color: #f7cac9;
+}
+table{
+  margin: auto;
+    width: 50%;
+font-family: 'Work Sans', sans-serif;
+}
+
+.images{
+  height: 6em;
+  width: 6em;
+  border-radius: 2%;
+
+}
+
+.happybutton{
+
+  background-color: #f7786b;
+  height: 2.5em;
+  width: 4em;
+  box-shadow: 1px 10px 7px #888888;
+  border-radius: 25%;
+  text-align: center;
+  padding: 1em;
+}
+
+.sadbutton{
+  padding: 1em;
+  background-color: #f7786b;
+  height: 2.5em;
+  width: 4em;
+  box-shadow: 1px 10px 7px #888888;
+  border-radius: 25%;
+  text-align: center;
+}
+
+.angrybutton{
+  padding: 1em;
+  background-color: #f7786b;
+  height: 2.5em;
+  width: 4em;
+  box-shadow: 1px 10px 7px #888888;
+  border-radius: 25%;
+  text-align: center;
+}
+
+.scaredbutton{
+  padding: 1em;
+  background-color: #f7786b;
+  height: 2.5em;
+  width: 4em;
+  box-shadow: 1px 10px 7px #888888;
+  border-radius: 25%;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+/*color scheme: light blue #92a8d1, light pink #f7cac9, red #f7786b, darker blue #034f84 */

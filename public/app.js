@@ -1,19 +1,59 @@
 'use strict';
 
-$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(console.log)
+$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(console.log);
+
+$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/sad/', method: 'GET'}).then(console.log);
+
+$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/angry/', method: 'GET'}).then(console.log);
+
+$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/fear/', method: 'GET'}).then(console.log);
 
 
 
+//  const array1 = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/sad/JSON',
+//  method: 'GET'});
+//
+// console.log(array1);
+//need to access this object...some how
+
+console.log("what the hell?");
 
 
 
-//then(data => data.forEach(word => $('#results').append(`<p>${word}</p>`)))
+function showHappyWords(){
+  $('.happyList').hide();
+  $('.happybutton').click(function() {
+    $('.happyList').toggle(1000);
+  });
+
+}
+
+function showSadWords(){
+  $('.sadList').hide();
+  $('.sadbutton').click(function() {
+    $('.sadList').toggle(1000);
+  });
+
+}
+
+function showAngryWords(){
+  $('.angryList').hide();
+  $('.angrybutton').click(function() {
+    $('.angryList').toggle(1000);
+  });
+
+}
+function showScaredWords(){
+  $('.scaredList').hide();
+  $('.scaredbutton').click(function() {
+    $('.scaredList').toggle(1000);
+  });
+
+}
 
 
-// $.get('/github/user/repos')
-// // .then(success, fail)
-// .then(
-//   // success
-//   data => data.forEach(repo => $('#results').append(`<p>${repo.name}</p>`)),
-//   // fail
-//   err => console.error(err.status, err.statusText, 'is the way my stuff is broken'))
+showAngryWords();
+showScaredWords();
+
+showSadWords();
+showHappyWords();

@@ -1,12 +1,41 @@
 'use strict';
 
-$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(console.log);
+// $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(console.log);
+//
+// $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/sad/', method: 'GET'}).then(console.log);
+//
+// $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/angry/', method: 'GET'}).then(console.log);
+//
+// $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/fear/', method: 'GET'}).then(console.log);
+// var myJSON = $.get({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/json', method: 'GET'});
+//
+// var myObj = JSON.parse(myJSON);
+//
+//
+// document.getElementById("demo").innerHTML = myObj.name;
+//var object = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/JSON', method: 'GET'});
 
-$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/sad/', method: 'GET'}).then(console.log);
+var object = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(function(nameOfStuffComingBack){for(var i = 0; i < nameOfStuffComingBack.length; i++){console.log(nameOfStuffComingBack[i])}});
 
-$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/angry/', method: 'GET'}).then(console.log);
+$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(function(nameOfStuffComingBack)
+   {for(var i = 0; i < nameOfStuffComingBack.length; i++)
+      {
+         console.log(nameOfStuffComingBack[i]);
 
-$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/fear/', method: 'GET'}).then(console.log);
+
+         var output = document.getElementById('output');
+
+         output.innerHTML = 'stuff is there' + nameOfStuffComingBack;
+        }
+        });
+
+
+console.log(object);
+
+console.log(object.readyState);
+
+console.log(object.responseText);//works in console
+
 
 
 

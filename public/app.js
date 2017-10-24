@@ -28,14 +28,16 @@ $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4
   for(var i = 0; i < nameOfStuffComingBack.length; i++)
       {
     //console.log(str = str + nameOfStuffComingBack[i]);
-
+    var rep = str.replace(/adjective|syn|ant|sim|rel/g, ' ').split('|');
+  //   /[,\s]+|[,\s]+/g
   }
 
-  var output = document.getElementById('output');
-  var res = str.split('|');
-  var rep = str.split('adjective');
-  var newArray = res.concat(rep);
-  output.innerHTML = 'stuff is there' + newArray;
+  var output = document.getElementById('output'); //USE REGEX TO FILTER RESULTS
+  //var res = str.split('|');
+
+  //var rep = str.split('adjective');
+  //var newArray = res.concat(rep);
+  output.innerHTML = 'stuff is there' + rep;
 
   //console.log(nameOfStuffComingBack);
 });

@@ -28,7 +28,8 @@ $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4
   for(var i = 0; i < nameOfStuffComingBack.length; i++)
       {
     //console.log(str = str + nameOfStuffComingBack[i]);
-    var rep = str.replace(/adjective|syn|ant|sim|rel/g, ' ').split('|');
+    //var rep = str.replace(/adjective|syn|ant|sim|rel/g, ' ').split('|');
+    var rep = str.replace(/adjective|syn|rel|sim|unhappy|ant|\W+/g, ' ');
   //   /[,\s]+|[,\s]+/g
   }
 

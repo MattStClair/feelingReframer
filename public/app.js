@@ -1,65 +1,38 @@
 'use strict';
 
-//$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(console.log);
-//
-// $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/sad/', method: 'GET'}).then(console.log);
-//
-// $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/angry/', method: 'GET'}).then(console.log);
-//
-// $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/fear/', method: 'GET'}).then(console.log);
-// var myJSON = $.get({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/json', method: 'GET'});
-//
-// var myObj = JSON.parse(myJSON);
 
 var str = '';
 
-var word = 'angry';
+//var word = document.getElementById('wordSearch');///get elementby id
+var word = 'sad';
+console.log(word);
 
+function getResults(word) {
+
+//this resquest creates the words===========================>
 var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
 {
   for(var i = 0; i < nameOfStuffComingBack.length; i++){
 
     str = str + nameOfStuffComingBack[i];};
-
-
 });
 
-$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
+//this request edits them=====================================>
+  $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
    {
   for(var i = 0; i < nameOfStuffComingBack.length; i++)
       {
-    //console.log(str = str + nameOfStuffComingBack[i]);
-    //var rep = str.replace(/adjective|syn|ant|sim|rel/g, ' ').split('|');
     var rep = str.replace(/adjective|syn|rel|sim|unhappy|ant|\W+/g, ' ');
-  //   /[,\s]+|[,\s]+/g
-  }
+      }
 
-  var output = document.getElementById('output'); //USE REGEX TO FILTER RESULTS
-  //var res = str.split('|');
-
-  //var rep = str.split('adjective');
-  //var newArray = res.concat(rep);
+  var output = document.getElementById('output');
   output.innerHTML = 'stuff is there' + rep;
 
   //console.log(nameOfStuffComingBack);
 });
 
 
-//console.log(object);
-
-//console.log(object.readyState);
-
-//console.log(object.responseText);//works in console
-
-
-
-
-//  const array1 = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/sad/JSON',
-//  method: 'GET'});
-//
-// console.log(array1);
-//need to access this object...some how
-
+}
 
 function showHappyWords(){
   $('.happyList').hide();
@@ -91,6 +64,12 @@ function showScaredWords(){
   });
 
 }
+
+document.getElementById('searchButton').addEventListener('click', function() {
+    // display the current click count inside the clicked div
+  getResults(word);
+
+},false);
 
 
 showAngryWords();

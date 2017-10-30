@@ -13,8 +13,9 @@
 
 var str = '';
 
+var word = 'angry';
 
-var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(function(nameOfStuffComingBack)
+var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
 {
   for(var i = 0; i < nameOfStuffComingBack.length; i++){
 
@@ -23,7 +24,7 @@ var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc14
 
 });
 
-$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/happy/', method: 'GET'}).then(function(nameOfStuffComingBack)
+$.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
    {
   for(var i = 0; i < nameOfStuffComingBack.length; i++)
       {

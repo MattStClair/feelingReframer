@@ -1,13 +1,21 @@
 'use strict';
-
-
+//
+// var word = $('#wordSearch');
 var str = '';
 
-//var word = document.getElementById('wordSearch');///get elementby id
+
+//console.log(text);
+
+
 var word = 'sad';
+
+
+
 console.log(word);
 
-function getResults(word) {
+//var word = document.getElementById('wordSearch');///get elementby id
+
+function getResults() {
 
 //this resquest creates the words===========================>
 var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
@@ -26,7 +34,7 @@ var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc14
       }
 
   var output = document.getElementById('output');
-  output.innerHTML = 'stuff is there' + rep;
+  output.innerHTML = 'Other feelings are:  ' + rep;
 
   //console.log(nameOfStuffComingBack);
 });
@@ -66,10 +74,11 @@ function showScaredWords(){
 }
 
 document.getElementById('searchButton').addEventListener('click', function() {
-    // display the current click count inside the clicked div
-  getResults(word);
+// display the current click count inside the clicked div
+  getResults();
 
 },false);
+
 
 
 showAngryWords();

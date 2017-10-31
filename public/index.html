@@ -7,24 +7,18 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand|Work+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
-    <header>
-
-
-      <ul class = "menu">
+  <div class="container">
+  <header>
+    <ul class = "menu">
       <li>About</li>
       <li>Stuff</li>
       <li>Stuff</li>
-      <h2> Feeling Reframer </h2>
     </ul>
   </header>
-    <h3>Enter how you are feeling in one word</h3>
-    <input type="text" id = "wordSearch" placeholder="sad">
-    <button id ="searchButton">Search</button>
-
-    <p id="output"></p>
+  <body>
+    <h1> Feeling Reframer </h1>
+    <img id= "background" src="backgroundReframer.jpg">
     <table>
-      <img id= "background" src="backgroundReframer.jpg">
     <td>
 
   <div class="happyColumn">
@@ -159,13 +153,22 @@
 </div>
 </td>
 </table>
+
+<h3>Or, enter how you are feeling in one word</h3>
+
+<input type="text" id="wordSearch" value="" placeholder="sad">
+
+<button id ="searchButton">Search</button>
+<p id="output"></p>
+
+<script src="app.js"></script>
+</body>
 <footer>
-<h2>Mental Health Resources</h2>
+  <h2>Mental Health Resources</h2>
   <div>
     <p>If you feel this is a life threatening emergency, call 911 </p>
     <p>Or, call the king county crisis line at 1(866-427-4747)</p>
-  <div>
-</footer>
-<script src="app.js"></script>
-</body>
+    <div>
+    </footer>
+</div>
 </html>

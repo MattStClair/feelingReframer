@@ -2,22 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>GitHub API Demo</title>
+    <title>Feeling Reframer</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand|Work+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
+  <div class="container">
   <header>
-    <img id= "background" src="backgroundReframer.jpg">
+    <ul class = "menu">
+      <li id ="homeLink">Home</li>
+      <li id ="aboutClick">About</li>
+      <li id ="dataSumClick">Data Summary</li>
+    </ul>
   </header>
   <body>
-    <h1>How are you feeling?</h1>
-    <img class = "images" src="cJung.jpg">
+    <h1> Feeling Reframer </h1>
 
-    <p id="output"></p>
+    <img id= "background" src="backgroundReframer.jpg">
 
-
-    <!-- <table>
+  <div class ="feelingHome" >
+    <table>
     <td>
 
   <div class="happyColumn">
@@ -151,14 +155,60 @@
 </ul>
 </div>
 </td>
-</table> -->
+</table>
 
-<h2>Mental Health Resources</h3>
-  <ul>
-    <li>If you feel this is a life threatening emergency, call 911 </li>
-    <li>Or, call the king county crisis line at 1(866-427-4747)</li>
+<h3>Or, enter how you are feeling in one word</h3>
+
+<input type="text" id="wordSearch" value="" placeholder="sad">
+
+<button id ="searchButton">Search</button>
+<p id="output"></p>
+
+</div>
+
+<div class="dataSummary">
+
+<h3>Data For Recent Feeling Clicks</h3>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+</div>
+
+<div class = "about">
+  <ul class = "mywork">
+    <li><a href="https://github.com/MattStClair"  target="_blank"><img src="git.png" alt="git"></a>  </li>
+    <li><a href="https://www.linkedin.com/in/matthew-stclair-m-s-607755122/"  target="_blank"><img src="linkd.png" alt="linkdIn"></a>  </li>
   </ul>
+  <h1 id = "name1">MATT </h1>
+  <h1 id = "name2"> ST.CLAIR</h1>
+  <h3 id ="slogan">Simplistic but Futuristic </h3>
+  <article>
+    <img id = "myPicture" src="images/MeOnABoat.png" alt="me">
 
+    <div id = "aboutMe">
+       <div id ="bio"><h3 id = "bioTitle"> Bio</h3>
+
+         <p>Hello, my name is Matt St.Clair. I am an Air Force veteran and a mental health therapist, transitioning into the web development field. I am finishing a B.S. in computer applications development from Renton Technical College while also taking full stack web development courses at Codefellows code camp in Seattle. I enjoy front end as well as back end work but am especially fascinated with UX design and how it blends with my social sciences background. I also enjoy front-end work because it allows me to collaborate and create with clients. </p>
+         <h3 id = "bioTitle">Technical Experience</h4>
+        <p>At codefellows, I have created web apps in HTML, CSS, and JavaScript in Atom using Chrome developer tools, and often working in groups, utilizing issues in GitHub and agile project workflow. At Renton Technical College, I work in Android and Visual Studios using object oriented programming as well as in multiple data base platforms to include MS Access, Excel, and Tableau. I am also the web content manager at Renton Area Youth and Family Services on their Wordpress site.
+         </div>
+
+    </div>
+
+</article>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="app.js"></script>
 </body>
+<footer>
+  <h2>Mental Health Resources</h2>
+  <div>
+    <p>If you feel this is a life threatening emergency, call 911 </p>
+    <p>Or, call the king county crisis line at 1(866-427-4747)</p>
+    <div>
+    </footer>
+</div>
 </html>

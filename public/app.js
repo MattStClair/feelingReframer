@@ -6,8 +6,15 @@ var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
 var word = 'sad';
 
+var wordsArray = {};
+
+$('.happList').find('li').each(function() {
+  click.alert('this works');
+});
 
 
+
+console.log(wordsArray);
 console.log(word);
 
 function getResults() {
@@ -34,9 +41,8 @@ function getResults() {
       //console.log(nameOfStuffComingBack);
     });
 
-  }
-
-  function showData(){
+}
+    function showData(){
     $('.dataSummary').hide();
     $('#dataSumClick').click(function(){
       $('.dataSummary').show(1000);

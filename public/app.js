@@ -6,8 +6,20 @@ var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
 var word = 'sad';
 
+var wordsArray = {};
+
+$('.happyList').find('li').each(function() {
+
+  if($('li').clicked){
+    alert('this works');
+    $('li').click(console.log('click works'));
+  }
+
+});
 
 
+
+console.log(wordsArray);
 console.log(word);
 
 function getResults() {
@@ -34,9 +46,8 @@ function getResults() {
       //console.log(nameOfStuffComingBack);
     });
 
-  }
-
-  function showData(){
+}
+    function showData(){
     $('.dataSummary').hide();
     $('#dataSumClick').click(function(){
       $('.dataSummary').show(1000);

@@ -8,8 +8,13 @@ var word = 'sad';
 
 var wordsArray = {};
 
-$('.happList').find('li').each(function() {
-  click.alert('this works');
+$('.happyList').find('li').each(function() {
+
+  if($('li').clicked){
+    alert('this works');
+    $('li').click(console.log('click works'));
+  }
+
 });
 
 

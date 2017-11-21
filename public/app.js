@@ -6,26 +6,14 @@ var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
 var word = 'sad';
 
-var wordsArray = {};
-
-$('.happyList').find('li').each(function() {
-
-  if($('li').clicked){
-    alert('this works');
-    $('li').click(console.log('click works'));
-  }
-
-});
 
 
-
-console.log(wordsArray);
 console.log(word);
 
 function getResults() {
 
   //this resquest creates the words===========================>
-  var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
+  var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
   {
     for(var i = 0; i < nameOfStuffComingBack.length; i++){
 
@@ -33,7 +21,7 @@ function getResults() {
     });
 
     //this request edits them=====================================>
-    $.ajax({url: 'http://words.bighugelabs.com/api/2/dd5bfddecdc1451b1ba9c7ac2ed20f4e/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
+    $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
     {
       for(var i = 0; i < nameOfStuffComingBack.length; i++)
       {
@@ -46,8 +34,9 @@ function getResults() {
       //console.log(nameOfStuffComingBack);
     });
 
-}
-    function showData(){
+  }
+
+  function showData(){
     $('.dataSummary').hide();
     $('#dataSumClick').click(function(){
       $('.dataSummary').show(1000);

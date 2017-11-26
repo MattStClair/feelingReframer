@@ -1,10 +1,15 @@
 'use strict';
 
 var str = '';
+var t = '';
 
 var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
 var word = 'sad';
+var happyWord = 'happy';
+var sadWord = 'sad';
+var angryWord = 'angry';
+var scaredWord = 'scared';
 
 
 
@@ -35,6 +40,39 @@ function getResults() {
     });
 
   }
+
+ ////////////////////get happy words////////////////////////////////
+
+ function getHappy() {
+
+   //this resquest creates the words===========================>
+  var HappyobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + happyWord + '/', method: 'GET'}).then(function(happyFunction)
+   {
+    for(var i = 0; i < happyFunction.length; i++){
+
+      t = t + happyFunction[i];};
+  });
+
+     //this request edits them=====================================>
+   $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + happyWord + '/', method: 'GET'}).then(function(happyFunction)
+     {
+     for(var i = 0; i < happyFunction.length; i++)
+       {
+         var r = t.replace(/adjective|syn|rel|sim|unhappy|ant|\W+/g, ' ');
+      }
+
+       var Houtput = document.getElementById('happyoutput');
+       Houtput.innerHTML = 'Other feelings are:  ' + r;
+
+
+      //  $('#div_id').click(function(){ //to make each word clickable//
+      //   alert('Clicked !!');
+      // });
+     });
+
+   }
+
+
 
   function showData(){
     $('.dataSummary').hide();
@@ -102,11 +140,16 @@ function getResults() {
 
   }
 
-  document.getElementById('searchButton').addEventListener('click', function() {
+$('#searchButton').click(function() {
     // display the current click count inside the clicked div
-    getResults();
+  getResults();
+});
 
-  },false);
+$('.happybutton').click(function() {
+
+  getHappy();
+
+});
 
   var stuff = localStorage.getItem('localCount');
 

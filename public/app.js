@@ -1,6 +1,7 @@
 'use strict';
 
 var str = '';
+var t = '';
 
 var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -45,23 +46,23 @@ function getResults() {
  function getHappy() {
 
    //this resquest creates the words===========================>
-  var HappyobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + happyWord + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
+  var HappyobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + happyWord + '/', method: 'GET'}).then(function(happyFunction)
    {
-    for(var i = 0; i < nameOfStuffComingBack.length; i++){
+    for(var i = 0; i < happyFunction.length; i++){
 
-      str = str + nameOfStuffComingBack[i];};
+      t = t + happyFunction[i];};
   });
 
      //this request edits them=====================================>
-   $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + happyWord + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
+   $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + happyWord + '/', method: 'GET'}).then(function(happyFunction)
      {
-     for(var i = 0; i < nameOfStuffComingBack.length; i++)
+     for(var i = 0; i < happyFunction.length; i++)
        {
-         var rep = str.replace(/adjective|syn|rel|sim|unhappy|ant|\W+/g, ' ');
+         var r = t.replace(/adjective|syn|rel|sim|unhappy|ant|\W+/g, ' ');
       }
 
        var Houtput = document.getElementById('happyoutput');
-       Houtput.innerHTML = 'Other feelings are:  ' + rep;
+       Houtput.innerHTML = 'Other feelings are:  ' + r;
 
 
       //  $('#div_id').click(function(){ //to make each word clickable//
@@ -139,11 +140,10 @@ function getResults() {
 
   }
 
-  document.getElementById('searchButton').addEventListener('click', function() {
+$('#searchButton').click(function() {
     // display the current click count inside the clicked div
-    getResults();
-
-  },false);
+  getResults();
+});
 
 $('.happybutton').click(function() {
 

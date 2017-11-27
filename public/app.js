@@ -2,6 +2,7 @@
 
 var str = '';
 var t = '';
+var s = '';
 
 var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -43,8 +44,8 @@ function getResults() {
 
  ////////////////////get happy words////////////////////////////////
 
- function getHappy() {
 
+ function getHappy() {
    //this resquest creates the words===========================>
   var HappyobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + happyWord + '/', method: 'GET'}).then(function(happyFunction)
    {
@@ -64,16 +65,40 @@ function getResults() {
        var Houtput = document.getElementById('happyoutput');
        Houtput.innerHTML = 'Other feelings are:  ' + r;
 
-
-      //  $('#div_id').click(function(){ //to make each word clickable//
-      //   alert('Clicked !!');
-      // });
      });
 
    }
 
 
+////get sadwords////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+function getSad() {
+  //this resquest creates the words===========================>
+ var SadobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + sadWord + '/', method: 'GET'}).then(function(SadFunction)
+  {
+   for(var i = 0; i < SadFunction.length; i++){
+
+     s = s + SadFunction[i];};
+ });
+
+    //this request edits them=====================================>
+  $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + sadWord + '/', method: 'GET'}).then(function(SadFunction)
+    {
+    for(var i = 0; i < SadFunction.length; i++)
+      {
+      var l = s.replace(/adjective|syn|rel|sim|unhappy|ant|\W+/g, ' ');
+ }
+
+    var Soutput = document.getElementById('sadoutput');
+    Soutput.innerHTML = 'Other feelings are:  ' + l;
+
+    });
+
+  }
+
+///////////////////////////////////////////////////////////////////////////
   function showData(){
     $('.dataSummary').hide();
     $('#dataSumClick').click(function(){
@@ -108,6 +133,7 @@ function getResults() {
     $('.happyList').hide();
     $('.happybutton').click(function() {
       $('.happyList').toggle(1000);
+      getHappy();
       clicks += 1;
 
       localStorage.setItem('localCount', 'clicks');
@@ -121,6 +147,7 @@ function getResults() {
     $('.sadList').hide();
     $('.sadbutton').click(function() {
       $('.sadList').toggle(1000);
+      getSad();
     });
 
   }
@@ -145,11 +172,6 @@ $('#searchButton').click(function() {
   getResults();
 });
 
-$('.happybutton').click(function() {
-
-  getHappy();
-
-});
 
   var stuff = localStorage.getItem('localCount');
 

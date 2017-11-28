@@ -7,6 +7,7 @@ var u = ''; //anger
 var v = ''; //scared
 var word;
 var clicks = 0;
+var clickArray = [];
 var ctx = document.getElementById('myChart').getContext('2d');
 
 
@@ -160,15 +161,6 @@ function getScared() {
 ///////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
   function showData(){
     $('.dataSummary').hide();
     $('#dataSumClick').click(function(){
@@ -206,9 +198,12 @@ function getScared() {
       getHappy();
       clicks += 1;
 
+      clickArray.push(clicks);
+
       localStorage.setItem('localCount', 'clicks');
 
       console.log(clicks);
+      console.log(clickArray);
     });
 
   }
@@ -253,7 +248,7 @@ $('#searchButton').click(function() {
       labels: ["Happy", "Sad", "Angry", "Scared"],
       datasets: [{
         label: '# of clicks',
-        data: [10,5,4,6],
+        data: [clickArray, 2, 4],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',

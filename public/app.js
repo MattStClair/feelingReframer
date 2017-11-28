@@ -5,21 +5,23 @@ var t = '';//happy
 var s = '';//sad
 var u = ''; //anger
 var v = ''; //scared
-
+var word;
 var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
-var word = 'sad';
+
+
+
+//console.log(word);
+//var word = 'sad';
 var happyWord = 'happy';
 var sadWord = 'sad';
 var angryWord = 'angry';
 var scaredWord = 'fear';
 
 
-
-console.log(word);
-
 function getResults() {
 
+   word = document.getElementById('wordSearch').value;
   //this resquest creates the words===========================>
   var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
   {
@@ -43,6 +45,9 @@ function getResults() {
     });
 
   }
+
+
+
 
  ////////////////////get happy words////////////////////////////////
 

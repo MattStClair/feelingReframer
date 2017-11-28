@@ -1,23 +1,27 @@
 'use strict';
 
 var str = '';
-var t = '';
-var s = '';
-
+var t = '';//happy
+var s = '';//sad
+var u = ''; //anger
+var v = ''; //scared
+var word;
 var clicks = 0;
 var ctx = document.getElementById('myChart').getContext('2d');
-var word = 'sad';
+
+
+
+//console.log(word);
+//var word = 'sad';
 var happyWord = 'happy';
 var sadWord = 'sad';
 var angryWord = 'angry';
-var scaredWord = 'scared';
+var scaredWord = 'fear';
 
-
-
-console.log(word);
 
 function getResults() {
 
+   word = document.getElementById('wordSearch').value;
   //this resquest creates the words===========================>
   var objectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + word + '/', method: 'GET'}).then(function(nameOfStuffComingBack)
   {
@@ -41,6 +45,9 @@ function getResults() {
     });
 
   }
+
+
+
 
  ////////////////////get happy words////////////////////////////////
 
@@ -72,8 +79,6 @@ function getResults() {
 
 ////get sadwords////////////////////////////////////////////////////////////////////////////////////////
 
-
-
 function getSad() {
   //this resquest creates the words===========================>
  var SadobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + sadWord + '/', method: 'GET'}).then(function(SadFunction)
@@ -99,6 +104,71 @@ function getSad() {
   }
 
 ///////////////////////////////////////////////////////////////////////////
+////get angrywords////////////////////////////////////////////////////////////////////////////////////////
+
+function getAngry() {
+  //this resquest creates the words===========================>
+ var AobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + angryWord + '/', method: 'GET'}).then(function(AngryFunction)
+  {
+   for(var i = 0; i < AngryFunction.length; i++){
+
+     u = u + AngryFunction[i];};
+ });
+
+    //this request edits them=====================================>
+  $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + angryWord + '/', method: 'GET'}).then(function(AngryFunction)
+    {
+    for(var i = 0; i < AngryFunction.length; i++)
+      {
+      var m = u.replace(/noun|ant|\W+/g, ' ');
+ }
+
+    var Aoutput = document.getElementById('angryoutput');
+    Aoutput.innerHTML = 'Other feelings are:  ' + m;
+
+    });
+
+  }
+
+///////////////////////////////////////////////////////////////////////////
+////get scaredwords////////////////////////////////////////////////////////////////////////////////////////
+
+function getScared() {
+  //this resquest creates the words===========================>
+ var ScobjectArray = $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + scaredWord + '/', method: 'GET'}).then(function(ScaredFunction)
+  {
+   for(var i = 0; i < ScaredFunction.length; i++){
+
+     v = v + ScaredFunction[i];};
+ });
+
+    //this request edits them=====================================>
+  $.ajax({url: 'http://words.bighugelabs.com/api/2/' + token + '/' + scaredWord + '/', method: 'GET'}).then(function(ScaredFunction)
+    {
+    for(var i = 0; i < ScaredFunction.length; i++)
+      {
+      var n = v.replace(/adjective|syn|rel|sim|unhappy|ant|\W+/g, ' ');
+ }
+
+    var Scoutput = document.getElementById('scaredoutput');
+    Scoutput.innerHTML = 'Other feelings are:  ' + n;
+
+    });
+
+  }
+
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
   function showData(){
     $('.dataSummary').hide();
     $('#dataSumClick').click(function(){
@@ -156,6 +226,7 @@ function getSad() {
     $('.angryList').hide();
     $('.angrybutton').click(function() {
       $('.angryList').toggle(1000);
+      getAngry();
     });
 
   }
@@ -163,6 +234,7 @@ function getSad() {
     $('.scaredList').hide();
     $('.scaredbutton').click(function() {
       $('.scaredList').toggle(1000);
+      getScared();
     });
 
   }

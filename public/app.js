@@ -6,8 +6,11 @@ var s = '';//sad
 var u = ''; //anger
 var v = ''; //scared
 var word;
-var clicks = 0;
-var clickArray = [];
+var Hclicks = 0;
+var HclickArray = [];
+
+var Sclicks = 0;
+var SclicksArray = [];
 var ctx = document.getElementById('myChart').getContext('2d');
 
 
@@ -196,14 +199,14 @@ function getScared() {
     $('.happybutton').click(function() {
       $('.happyList').toggle(1000);
       getHappy();
-      clicks += 1;
+      Hclicks += 1;
 
-      clickArray.push(clicks);
+      HclickArray.push(Hclicks);
 
-      localStorage.setItem('localCount', 'clicks');
+      localStorage.setItem('localCount', 'Hclicks');
 
-      console.log(clicks);
-      console.log(clickArray);
+      console.log(Hclicks);
+      //console.log(clickArray);
     });
 
   }
@@ -213,6 +216,8 @@ function getScared() {
     $('.sadbutton').click(function() {
       $('.sadList').toggle(1000);
       getSad();
+      Sclicks += 1;
+      SclicksArray.push(Sclicks);
     });
 
   }
@@ -242,42 +247,6 @@ $('#searchButton').click(function() {
 
   var stuff = localStorage.getItem('localCount');
 
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ["Happy", "Sad", "Angry", "Scared"],
-      datasets: [{
-        label: '# of clicks',
-        data: [clickArray, 2, 4],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
 
 showHome();
 showData();
@@ -286,3 +255,40 @@ showScaredWords();
 showAbout();
 showSadWords();
 showHappyWords();
+
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["Happy", "Sad", "Angry", "Scared"],
+    datasets: [{
+      label: '# of clicks',
+      data: HclickArray,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});

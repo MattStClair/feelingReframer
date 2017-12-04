@@ -6,7 +6,12 @@ var s = '';//sad
 var u = ''; //anger
 var v = ''; //scared
 var word;
-var clicks = 0;
+var Hclicks = 1;
+var HclickArray = [];
+var HLength = HclickArray.length;
+var Sclicks = 1;
+var SclicksArray = [];
+var SLength = SclicksArray.length;
 var ctx = document.getElementById('myChart').getContext('2d');
 
 
@@ -160,15 +165,6 @@ function getScared() {
 ///////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
   function showData(){
     $('.dataSummary').hide();
     $('#dataSumClick').click(function(){
@@ -204,11 +200,14 @@ function getScared() {
     $('.happybutton').click(function() {
       $('.happyList').toggle(1000);
       getHappy();
-      clicks += 1;
+      Hclicks += 1;
 
-      localStorage.setItem('localCount', 'clicks');
+      HclickArray.push(Hclicks);
 
-      console.log(clicks);
+      localStorage.setItem('localHCount', 'Hclicks');
+
+      console.log(Hclicks);
+      //console.log(clickArray);
     });
 
   }
@@ -218,6 +217,13 @@ function getScared() {
     $('.sadbutton').click(function() {
       $('.sadList').toggle(1000);
       getSad();
+      Sclicks += 1;
+      SclicksArray.push(Sclicks);
+
+      localStorage.setItem('localSCount', 'Sclicks');
+
+
+
     });
 
   }
@@ -245,44 +251,9 @@ $('#searchButton').click(function() {
 });
 
 
-  var stuff = localStorage.getItem('localCount');
+  var Happystuff = localStorage.getItem('localHCount');
 
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ["Happy", "Sad", "Angry", "Scared"],
-      datasets: [{
-        label: '# of clicks',
-        data: [10,5,4,6],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
+  var sadStuff = localStorage.getItem('localSCount');
 
 showHome();
 showData();
@@ -291,3 +262,40 @@ showScaredWords();
 showAbout();
 showSadWords();
 showHappyWords();
+
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["Happy", "Sad", "Angry", "Scared"],
+    datasets: [{
+      label: '# of clicks',
+      data: [2,4,5,6],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});

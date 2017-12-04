@@ -6,11 +6,12 @@ var s = '';//sad
 var u = ''; //anger
 var v = ''; //scared
 var word;
-var Hclicks = 0;
+var Hclicks = 1;
 var HclickArray = [];
-
-var Sclicks = 0;
+var HLength = HclickArray.length;
+var Sclicks = 1;
 var SclicksArray = [];
+var SLength = SclicksArray.length;
 var ctx = document.getElementById('myChart').getContext('2d');
 
 
@@ -203,7 +204,7 @@ function getScared() {
 
       HclickArray.push(Hclicks);
 
-      localStorage.setItem('localCount', 'Hclicks');
+      localStorage.setItem('localHCount', 'Hclicks');
 
       console.log(Hclicks);
       //console.log(clickArray);
@@ -218,6 +219,11 @@ function getScared() {
       getSad();
       Sclicks += 1;
       SclicksArray.push(Sclicks);
+
+      localStorage.setItem('localSCount', 'Sclicks');
+
+
+
     });
 
   }
@@ -245,8 +251,9 @@ $('#searchButton').click(function() {
 });
 
 
-  var stuff = localStorage.getItem('localCount');
+  var Happystuff = localStorage.getItem('localHCount');
 
+  var sadStuff = localStorage.getItem('localSCount');
 
 showHome();
 showData();
@@ -262,7 +269,7 @@ var myChart = new Chart(ctx, {
     labels: ["Happy", "Sad", "Angry", "Scared"],
     datasets: [{
       label: '# of clicks',
-      data: HclickArray,
+      data: [2,4,5,6],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
